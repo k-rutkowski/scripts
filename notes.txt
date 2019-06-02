@@ -1,0 +1,11 @@
+How to make scripts/programs run with root priviledges without password
+-----------------------------------------------------------------------
+
+1. Open /etc/sudoers (or run visudo)
+2. At the end of file add:
+	kr ALL = NOPASSWD: /usr/bin/veracrypt
+	kr ALL = NOPASSWD: /sbin/reboot
+	kr ALL = NOPASSWD: /usr/sbin/grub-reboot
+	...
+
+

@@ -1,0 +1,12 @@
+[Unit]
+Description=AutoSSH reverse tunnel to devil server
+After=network.target 
+
+[Service]
+Environment="AUTOSSH_GATETIME=0"
+User=kr
+ExecStart=/usr/bin/autossh -M 0 -o "ServerAliveInterval 30" -o "ServerAliveCountMax 3" -o "ExitOnForwardFailure=yes" -N -R 22212:localhost:22 rutkowski@s19.mydevil.net -i /home/kr/.ssh/id_rsa
+
+[Install]
+WantedBy=multi-user.target
+
